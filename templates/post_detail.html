@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="col d-flex m-3 p-5">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 100%;">
+        
+        <div class="card-body">
+            
+        <h5 class="card-title p-1"> {{post.title}} @{{post.author}}</h5>
+        <label for="content">Posted</label>
+        <h6><p class="card-text">Content: {{post.body}}</p></h6>
+        <h6 class="card-title">Author: {{post.author}}</h6>
+
+        <div class="buttons d-flex justify-content-end">
+            <a href="{% url 'update_post' post.id %}"><button type="submit" class="btn btn-success mx-4">Edit</button></a>
+            <a href="{% url 'post_delete' post.id %}"><button type="submit" class="btn btn-danger">Delete</button></a>
+        </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

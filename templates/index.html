@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+<div class="container">
+    
+    
+    
+    <div class="w-100"></div> 
+    <div class="col-md-4"> 
+        <div class="card shadow bg-body-tertiary rounded mt-5 mb-5"  style="width: 80vw">
+            <div class="card-body " style="overflow: hidden;">
+
+            <H1 class="title d-flex justify-content-center p-4">BLOG POSTS</H1>
+            <div class="con d-flex justify-content-end px-5 m-2 mb-5 ">
+                    <a class="nav-link active" aria-current="page" href="{% url 'create_post' %}">
+                        <button type="button" class="btn btn-success ">Create Post</button>
+                    </a>
+            </div>
+                
+    {% for post in posts %}
+
+    <div class="card shadow p-5 m-5 rounded-3" style="background: #D8E0CD" >
+        <h5 class="card-title mb-5"> <a href="{% url 'post_detail' post.id %}">{{post.title}}</a></h5>
+        <p class="card-text">Content: {{post.body}}</p>
+        <div class="author d-flex justify-content-end mb-0">
+            <h6 class="card-title">Author: {{post.author}}</h6>
+        </div>
+        <br>
+    </div>
+    
+        
+    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

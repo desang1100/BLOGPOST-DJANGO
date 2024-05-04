@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5 p-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
+    <form  method="POST">
+        {% csrf_token %}
+        {% if message %}
+        <h1>{{message}}</h1>
+        {% endif %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Title</label>
+          <input value="{{post.title}}" name="title" placeholder="Post title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+        <div class="mb-3">
+          <label for="post-description" class="form-label">Post Description</label>
+          <div class="form-floating">
+        <textarea  name="description" class="form-control mb-3"  id="floatingTextarea">{{post.body}}</textarea>
+            
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    
+</div>
+
+
+
+
+
+{% endblock %}

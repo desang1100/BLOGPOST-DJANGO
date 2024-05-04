@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="col d-flex m-3 p-5">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 100%;">
+        
+        <div class="card-body">
+            <form  method="POST" action="">
+                {% csrf_token %}
+                <H1 class="title d-flex justify-content-center p-4">Signup</H1>
+                {% if message %}
+                <h4>{{message}}</h4>
+                {% endif %}
+                    
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                    <input type="text" name="email" class="form-control" id="exampleFormControlInput1" placeholder="username@email.com">
+                </div>
+            
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" name="password1" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label"> Confirm Password</label>
+                    <input type="password" name="password2" class="form-control" id="exampleFormControlInput1" placeholder="Confirm Password">
+                </div>
+
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container mt-5 p-5 shadow p-3 mb-5 bg-body-tertiary rounded">
+  <h1 class="newpost d-flex justify-content-center pt-2 mb-5">New Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% if message %}
+        <h1>{{message}}</h1>
+        {% endif %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Title</label>
+          <input name="title" placeholder="Post title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          
+        </div>
+        <div class="mb-3">
+          <label for="post-description" class="form-label">Post Description</label>
+          <div class="form-floating">
+            <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Post Description</label>
+          </div>
+        </div>
+       <div class="container d-flex justify-content-end pt-4 gap-3">
+        
+        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <button type="update" class="btn btn-primary">Submit</button>
+       </div>
+        
+      </form>
+    
+</div>
+
+
+
+
+
+{% endblock %}

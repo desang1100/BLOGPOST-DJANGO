@@ -1,0 +1,59 @@
+
+
+{% block content %}
+
+<nav class="navbar bg-dark border-bottom border-body d-flex justify-content-end " data-bs-theme="dark" style="background-color: #e3f2fd;" >
+        <div class="nav-position"></div>
+  
+        <ul class="nav ">
+
+            {% if request.user.is_authenticated %}
+
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" >
+                        <h4 style="text-transform: uppercase;">Hello {{request.user.username}}</h4>
+                      </a>
+                    </li>
+                  
+                  
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+      
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'about' %}" >About Us</a>
+                  </li>
+      
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'contacts' %}">Contacts</a>
+                  </li>
+      
+                  <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'create_post' %}">Create Post</a>
+                  </li> -->
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                  </li>
+
+            {% else %}
+            
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Signup</a>
+                  </li>
+
+            {% endif %}
+           
+            
+            
+          </ul>
+
+    
+  </nav>
+
+{% endblock %}
